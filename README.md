@@ -45,13 +45,13 @@ The VPC and subnets are essential to provide network isolation and redundancy, e
 
 *• Name: Public Subnet
 • AZ: us-east-1a
-• CIDR: 10.0.0.0/24
+• CIDR: 10.0.0.0/24*
 
-• Name: Private Subnet
+*• Name: Private Subnet
 • AZ: us-east-1a
-• CIDR: 10.0.1.0/24
+• CIDR: 10.0.1.0/24*
 
-• Name: Private Subnet
+*• Name: Private Subnet
 • AZ: us-east-1b
 • CIDR: 10.0.2.0/24*
 
@@ -71,6 +71,7 @@ Next generate a keypair; *"ec2-ssh"* key pair and save the private key file secu
 ![Alt text](<SCREENSHORTS/CREATING EC2 INSTANCE.png>)
 
 **Network Settings**
+
 *VPC (vpc-bootcamp)
 Subnet (Public Subnet)
 Auto-assign public IP: Enable
