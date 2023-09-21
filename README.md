@@ -40,7 +40,8 @@ Now let's get down to it.
 
 ![Alt text](<SCREENSHORTS/vpc creation.png>)
 
-**- Creating Public and Privates Subnets**
+**Creating Public and Privates Subnets**
+
 The VPC and subnets are essential to provide network isolation and redundancy, ensuring high availability and security. This group of subnets allows us to deploy our RDS database within our VPC which requires and at least 2 subnets in multiple AZs for fault tolerance.
 
 *• Name: Public Subnet
@@ -60,8 +61,8 @@ The VPC and subnets are essential to provide network isolation and redundancy, e
 
 
 **Step 2 Creating EC2**
-In this step I created an EC2 instance named *"awsuse1app01"* with an appropriate instance type. 
 
+In this step I created an EC2 instance named *"awsuse1app01"* with an appropriate instance type. 
 *• Name: awsuse1app01
 • Ubuntu: 22.04 LTS
 • Instance Type: t2.micro*
@@ -79,9 +80,9 @@ Firewall (security groups): app01-sg [ Ports: 22 | 8080 ]*
 
 ![Alt text](<SCREENSHORTS/Editing Security group to allow traffice to the EC2 application over the internet..png>)
 
-**tep 3 Creating DB RDS**
-The RDS instance will host our database securely in the AWS cloud, and proper configuration is essential for data integrity. such secure connectivity to it by not opening any connectivity to it from the public. 
+**Step 3 Creating DB RDS**
 
+The RDS instance will host our database securely in the AWS cloud, and proper configuration is essential for data integrity. such secure connectivity to it by not opening any connectivity to it from the public. 
 
 *• RDS | Create database
 • Standard create
@@ -186,6 +187,7 @@ sudo apt-get install mysql-client -y
 **Part 3: Go Live**
 
 **Step 1 Creating a Security Group for RDS [ VPC | SG ]**
+
 We create a security group ("EC2toRDS-sg") to allow the EC2 instance to access the RDS database on port 3306.
 *Name: EC2toRDS-sg
 Description: SG to allow access to MySQL by the application running at EC2.
@@ -196,6 +198,7 @@ Inbound rules -->  Add rule --> Type: MYSQL/Aurora  --> Destination: 0.0.0.0/0*
 
 
 **Step 2 Associating the SG (EC2toRDS-sg) to the RDS instance (awsuse1db01):**
+
 Associate the newly created security group with the RDS instance to allow traffic between them.
 
 *RDS --> DB Instances --> awsuse1db01 -->Modify
@@ -247,12 +250,14 @@ mysql -h <rds_endpoint> -P 3306 -u admin -p
 
 *EXAMPLE: mysql -h awsuse1db01.culdx6558fqq.us-east-1.rds.amazonaws.com -P 3306 -u admin -p*
 
- Password: admin123456
+ *Password: admin123456*
+
  password is configures in the database dump file. 
  
 ![Alt text](<SCREENSHORTS/connection to mysql.png>)
 
 **Step 6 Creating a DB 'wikidb' and importing data to it.** 
+
 This ensures the application has the required data for operation.
 
 ```console
@@ -276,9 +281,8 @@ GRANT ALL PRIVILEGES ON wikidb.* TO wiki@'%';
 FLUSH PRIVILEGES;
 EXIT;
 ```
-
-
 **Step 8 Unziping the application's file and edit the wiki.py file.** 
+
 We unzip the application file and edit the *"wiki.py"* configuration to specify the MySQL host and user.
 
 ```console
@@ -297,6 +301,7 @@ Configuring the application correctly ensures it connects to the RDS database.
 
 
 **Step 9 Loading the application:**
+
 let's launch our application and make it accessible through the web using the following command. 
 
 ```console
@@ -309,6 +314,7 @@ Validate the migration by copying the Public IP of your EC2 instance and add to 
 *Login: admin / ***** *
 
 **Ste 10 Test the application by adding a new Article:**
+
 we test out out application by creating a new article title *"Let's conquer the cloud universal"* and the following contents
 
 *"I'm conquering the MultiCloud Universe and my name is [ENTER YOUR NAME HERE]! 😎
