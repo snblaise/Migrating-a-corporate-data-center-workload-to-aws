@@ -1,11 +1,14 @@
 # Migrating a Corporate Data Center Workload to AWS: Leveraging Amazon EC2, VPC and RDS Services
+
 ![Alt text](<SCREENSHORTS/PORTFOLIOPROJECTS_AWSMODULE3 1.png>)
 
 **Project Description:**
+
 In this real-world project, I assumed the role of a Cloud Specialist tasked with the migration of a critical workload from an on-premises Corporate DataCenter to Amazon Web Services (AWS). The project aimed to leverage the scalability, reliability, and cost-efficiency of AWS cloud infrastructure while ensuring a seamless transition without compromising data integrity or service availability.
 ![Alt text](SCREENSHORTS/PORTFOLIOPROJECTS_AWSMODULE3_ARCHITECTURE.png)
 
 **Project Approach:**
+
 To ensure a successful migration, I followed a systematic approach with distinct phases:
 
 **1. Planning:**
